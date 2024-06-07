@@ -157,12 +157,27 @@
                   ><img src="images/pic04.png" alt=""
                 /></a>
                 <div class="inner">
-                  <h4>Authenticate - Register and Login User APIs</h4>
-                  <a
-                    href="https://authenticate-c4219-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json"
-                    target="_blank"
-                    >https://authenticate-c4219-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json</a
-                  >
+                  <h4>Register, Login User, Search for Spam APIs</h4>
+                  <div style="display: flex;">
+                    <textarea id="token" style="margin: 10px;" placeholder="Token" cols="10" rows="1"></textarea>
+                    <textarea id="username" style="margin: 10px;" placeholder="Search User" cols="10" rows="1"></textarea>
+                  </div>
+                  <div style="display: flex;">
+                    <textarea id="payload" placeholder='Payload - {"phoneNumber":"1234567890","password":"mypass"}' cols="40" rows="5"></textarea>
+                    <textarea id="result" placeholder="Response" cols="40" rows="5"></textarea>
+                  </div>
+                  <p id="loadingDiv"></p>
+                  <div style="display: flex;">
+
+                      <button id="register" style="margin: 5px;" class="button-22" onclick="registerData()">Register</button>
+
+                      <button id="login" style="margin: 5px;" class="button-22" onclick="loginData()">Login</button>
+
+                      <button id="search" style="margin: 5px;" class="button-22" onclick="searchData()">Search</button>
+
+                      <button id="spam" style="margin: 5px;" class="button-22">Spam</button>
+
+                  </div>
                   <p>
                     As the name implies I have designed a modern attendance
                     system using bluetooth technology which is available in most
@@ -351,6 +366,119 @@
         }
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
+      }
+
+      // document.getElementById('login').addEventListener('click', fetchData);
+
+      function loginData() {
+        $('#loadingDiv').text('Loading...')
+
+        let payload = $('#payload').val();
+        payload = payload.replace(/(\r\n|\n|\r)/gm, "");
+        payload = payload.trim();
+        console.log(payload)
+        var settings = {
+          "url": "https://nodejs-authenticate.onrender.com/portal/api/login",
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "data": JSON.stringify(JSON.parse(payload)),
+          "timeout": 5000,
+        };
+        console.log(
+          "settings ",settings
+        )
+        $.ajax(settings).done(function (response) {
+          $('#loadingDiv').text('')
+          document.getElementById('result').value = JSON.stringify(response);
+        })
+        .catch(error => {
+          console.log("error: ",error)
+          console.log("error?.responseJSON: ",error?.responseJSON)
+          if(error?.responseJSON?.error){
+            $('#loadingDiv').text(`Error: ${error.responseJSON.error}`);            
+          }
+          else{
+            $('#loadingDiv').text(`Error: ${error.message}`);
+          }
+        });
+      }
+
+      function registerData() {
+        $('#loadingDiv').text('Loading...')
+
+        let payload = $('#payload').val();
+        payload = payload.replace(/(\r\n|\n|\r)/gm, "");
+        payload = payload.trim();
+        console.log(payload)
+        var settings = {
+          "url": "https://nodejs-authenticate.onrender.com/portal/api/createuser",
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "data": JSON.stringify(JSON.parse(payload)),
+          "timeout": 5000,
+        };
+        console.log(
+          "settings ",settings
+        )
+
+        $.ajax(settings).done(function (response) {
+          $('#loadingDiv').text('')
+          document.getElementById('result').value = JSON.stringify(response);
+        })
+        .catch(error => {
+          console.log("error: ",error)
+          console.log("error?.responseJSON: ",error?.responseJSON)
+          if(error?.responseJSON?.error){
+            $('#loadingDiv').text(`Error: ${error.responseJSON.error}`);            
+          }
+          else{
+            $('#loadingDiv').text(`Error: ${error.message}`);
+          }
+        });
+      }
+
+      function searchData() {
+        $('#loadingDiv').text('Loading...')
+
+        let token = $('#token').val();
+        let username = $('#username').val();
+        // payload = payload.replace(/(\r\n|\n|\r)/gm, "");
+        token = token.trim();
+        console.log("token: ",token);
+        var settings = {
+          "url": "https://nodejs-authenticate.onrender.com/portal/api/search/name/"+username,
+          "method": "GET",
+          "timeout": 0,
+          "headers": {
+            "Authorization": "Bearer "+token,
+            "Content-Type": "application/json"
+          },
+          "timeout": 5000,
+        };
+        console.log(
+          "settings ",settings
+        )
+
+        $.ajax(settings).done(function (response) {
+          $('#loadingDiv').text('')
+          document.getElementById('result').value = JSON.stringify(response);
+        })
+        .catch(error => {
+          console.log("error: ",error)
+          console.log("error?.responseJSON: ",error?.responseJSON)
+          if(error?.responseJSON?.error){
+            $('#loadingDiv').text(`Error: ${error.responseJSON.error}`);            
+          }
+          else{
+            $('#loadingDiv').text(`Error: ${error.message}`);
+          }
+        });
       }
     </script>
 
