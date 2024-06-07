@@ -157,7 +157,7 @@
                   ><img src="images/pic04.png" alt=""
                 /></a>
                 <div class="inner">
-                  <h4>Register, Login User, Search for Spam APIs</h4>
+                  <h4>Register, Login User, Search and Mark as Spam APIs</h4>
                   <div style="display: flex;">
                     <textarea id="token" style="margin: 10px;" placeholder="Token" cols="10" rows="1"></textarea>
                     <textarea id="username" style="margin: 10px;" placeholder="Search User" cols="10" rows="1"></textarea>
@@ -169,19 +169,28 @@
                   <p id="loadingDiv"></p>
                   <div style="display: flex;">
 
-                      <button id="register" style="margin: 5px;" class="button-22" onclick="registerData()">Register</button>
+                      <button id="register" title='{
+                        "name":"yourName",
+                        "email":"email@domain.com",
+                        "phoneNumber":"1234657890",
+                        "password":"myPassword"
+                      }' style="margin: 5px;" class="button-22" onclick="registerData()">Register</button>
 
-                      <button id="login" style="margin: 5px;" class="button-22" onclick="loginData()">Login</button>
+                      <button id="login" title='{
+                        "phoneNumber":"8034567902",
+                        "password":"hashThisPassword"
+                      }' style="margin: 5px;" class="button-22" onclick="loginData()">Login</button>
 
-                      <button id="search" style="margin: 5px;" class="button-22" onclick="searchData()">Search</button>
+                      <button id="search" title='Enter Token and Name' style="margin: 5px;" class="button-22" onclick="searchData()">Search</button>
 
-                      <button id="spam" style="margin: 5px;" class="button-22">Spam</button>
+                      <button id="spam" title='Enter Token and {
+                        "phoneNumber":"1234567890",
+                        "reason":"eg. Telecaller"
+                      }' style="margin: 5px;" class="button-22" onclick="spamData()">Spam</button>
 
                   </div>
                   <p>
-                    As the name implies I have designed a modern attendance
-                    system using bluetooth technology which is available in most
-                    of the smartphones.
+                    The Register API allows new users to create an account by providing their details. The Login API enables users to authenticate with their username and password, generating a token upon success. The Search API lets users find specific information or items by providing search parameters, returning matching results. The Mark as Spam API allows users to report content as spam by providing the content ID.
                   </p>
                 </div>
               </article>
@@ -480,6 +489,49 @@
           }
         });
       }
+
+
+      function spamData() {
+        $('#loadingDiv').text('Loading...')
+
+        let token = $('#token').val();
+        let payload = $('#payload').val();
+        payload = payload.replace(/(\r\n|\n|\r)/gm, "");
+        token = token.trim();
+        payload = payload.trim();
+        console.log("token: ",token);
+        console.log("payload: ",payload);
+        var settings = {
+          "url": "https://nodejs-authenticate.onrender.com/portal/api/spam",
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Authorization": "Bearer "+token,
+            "Content-Type": "application/json"
+          },
+          "data": JSON.stringify(JSON.parse(payload)),
+          "timeout": 5000,
+        };
+        console.log(
+          "settings ",settings
+        )
+
+        $.ajax(settings).done(function (response) {
+          $('#loadingDiv').text('')
+          document.getElementById('result').value = JSON.stringify(response);
+        })
+        .catch(error => {
+          console.log("error: ",error)
+          console.log("error?.responseJSON: ",error?.responseJSON)
+          if(error?.responseJSON?.error){
+            $('#loadingDiv').text(`Error: ${error.responseJSON.error}`);            
+          }
+          else{
+            $('#loadingDiv').text(`Error: ${error.message}`);
+          }
+        });
+      }
+
     </script>
 
     <script src="assets/js/jquery.min.js"></script>
