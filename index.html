@@ -399,7 +399,7 @@
           $('#loadingDiv').text('')
           document.getElementById('result').value = JSON.stringify(response);
         })
-        .catch(error => {
+        .fail(function(error) {
           console.log("error: ",error)
           console.log("error?.responseJSON: ",error?.responseJSON)
           if(error?.responseJSON?.error){
@@ -436,7 +436,7 @@
           $('#loadingDiv').text('')
           document.getElementById('result').value = JSON.stringify(response);
         })
-        .catch(error => {
+        .fail(function(error) {
           console.log("error: ",error)
           console.log("error?.responseJSON: ",error?.responseJSON)
           if(error?.responseJSON?.error){
@@ -474,7 +474,7 @@
           $('#loadingDiv').text('')
           document.getElementById('result').value = JSON.stringify(response);
         })
-        .catch(error => {
+        .fail(function(error) {
           console.log("error: ",error)
           console.log("error?.responseJSON: ",error?.responseJSON)
           if(error?.responseJSON?.error){
@@ -516,7 +516,7 @@
           $('#loadingDiv').text('')
           document.getElementById('result').value = JSON.stringify(response);
         })
-        .catch(error => {
+        .fail(function(error) {
           console.log("error: ",error)
           console.log("error?.responseJSON: ",error?.responseJSON)
           if(error?.responseJSON?.error){
