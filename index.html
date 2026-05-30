@@ -1,543 +1,2297 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>chandkiransingh</title>
     <meta charset="utf-8" />
+    <title>Chand Kiran Singh — Senior Software Engineer</title>
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- script for google ads -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2448248419138647" crossorigin="anonymous"></script>
+    <meta
+      name="description"
+      content="Chand Kiran Singh — Senior Software Engineer specializing in Node.js, Angular & full-stack web development. Building scalable, high-performing software."
+    />
+    <meta name="author" content="Chand Kiran Singh" />
+    <meta name="theme-color" content="#0d1117" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Chand Kiran Singh — Senior Software Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack engineer specializing in Node.js & Angular. Designing, building and scaling complex web applications."
+    />
+    <meta property="og:image" content="images/avatar.png" />
+    <meta property="og:url" content="https://www.chandkiransingh.com" />
+
+    <link rel="icon" href="images/avatar.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+
+    <!-- google ads -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2448248419138647"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      :root {
+        --bg: #0b0e14;
+        --bg-alt: #0f141d;
+        --surface: #141a24;
+        --surface-2: #1a2230;
+        --border: #232c3b;
+        --text: #e7edf5;
+        --muted: #98a4b6;
+        --faint: #6b7688;
+        --accent: #ff5d5d;
+        --accent-2: #ff9166;
+        --accent-soft: rgba(255, 93, 93, 0.12);
+        --ring: rgba(255, 93, 93, 0.35);
+        --radius: 16px;
+        --maxw: 1180px;
+        --shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.8);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      a:hover {
+        color: var(--accent-2);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        line-height: 1.2;
+        margin: 0 0 0.5em;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0 0 1em;
+        color: var(--muted);
+      }
+
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      .mono {
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      /* ===== Background glow ===== */
+      body::before {
+        content: "";
+        position: fixed;
+        top: -25%;
+        right: -10%;
+        width: 60vw;
+        height: 60vw;
+        background: radial-gradient(
+          circle,
+          rgba(255, 93, 93, 0.13),
+          transparent 62%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+      body::after {
+        content: "";
+        position: fixed;
+        bottom: -25%;
+        left: -15%;
+        width: 55vw;
+        height: 55vw;
+        background: radial-gradient(
+          circle,
+          rgba(110, 168, 254, 0.08),
+          transparent 62%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* ===== Navbar ===== */
+      header.nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(14px);
+        background: rgba(11, 14, 20, 0.72);
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s ease, background 0.3s ease;
+      }
+      header.nav.scrolled {
+        border-bottom-color: var(--border);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+      .brand .mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: #fff;
+        font-size: 0.95rem;
+        box-shadow: 0 6px 18px -6px var(--ring);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links a {
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--text);
+        background: var(--surface-2);
+      }
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 18px !important;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #fff !important;
+        border-radius: 10px !important;
+        font-weight: 600 !important;
+        box-shadow: 0 8px 20px -8px var(--ring);
+      }
+      .nav-cta:hover {
+        transform: translateY(-1px);
+      }
+      .nav-toggle {
+        display: none;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        color: var(--text);
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+
+      /* ===== Section scaffolding ===== */
+      section {
+        padding: 96px 0;
+        position: relative;
+      }
+      section.tint {
+        background: var(--bg-alt);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 14px;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 22px;
+        height: 1px;
+        background: var(--accent);
+      }
+      .section-title {
+        font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+        margin-bottom: 14px;
+      }
+      .section-lead {
+        max-width: 640px;
+        font-size: 1.05rem;
+        margin-bottom: 48px;
+      }
+
+      /* ===== Hero ===== */
+      .hero {
+        padding: 120px 0 90px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.35fr 0.9fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 7px 15px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        border-radius: 999px;
+        font-size: 0.84rem;
+        color: var(--muted);
+        margin-bottom: 26px;
+      }
+      .status-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #34d399;
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+        }
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 18px;
+      }
+      .hero h1 .grad {
+        background: linear-gradient(120deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero .role {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 18px;
+      }
+      .hero .role .at {
+        color: var(--accent);
+      }
+      .hero p.intro {
+        font-size: 1.08rem;
+        max-width: 560px;
+        margin-bottom: 32px;
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 26px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.96rem;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 0.2s ease;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #fff;
+        box-shadow: 0 12px 26px -10px var(--ring);
+      }
+      .btn-primary:hover {
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 16px 32px -10px var(--ring);
+      }
+      .btn-ghost {
+        background: var(--surface);
+        border-color: var(--border);
+        color: var(--text);
+      }
+      .btn-ghost:hover {
+        color: var(--text);
+        border-color: var(--accent);
+        background: var(--surface-2);
+      }
+      .hero-socials {
+        display: flex;
+        gap: 10px;
+        margin-top: 30px;
+      }
+      .hero-socials a {
+        width: 44px;
+        height: 44px;
+        border-radius: 11px;
+        display: grid;
+        place-items: center;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 1.05rem;
+        transition: all 0.2s ease;
+      }
+      .hero-socials a:hover {
+        color: #fff;
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        transform: translateY(-2px);
+      }
+
+      /* Hero portrait */
+      .hero-portrait {
+        position: relative;
+        justify-self: center;
+      }
+      .hero-portrait .frame {
+        width: clamp(240px, 28vw, 320px);
+        height: clamp(240px, 28vw, 320px);
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+      .hero-portrait .frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-portrait .frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 55%,
+          rgba(11, 14, 20, 0.55)
+        );
+      }
+      .floating-badge {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 16px;
+        background: rgba(20, 26, 36, 0.92);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .floating-badge i {
+        color: var(--accent);
+      }
+      .floating-badge.top {
+        top: -18px;
+        right: -22px;
+      }
+      .floating-badge.bottom {
+        bottom: -18px;
+        left: -28px;
+      }
+      .floating-badge small {
+        display: block;
+        font-weight: 400;
+        color: var(--faint);
+        font-size: 0.72rem;
+      }
+
+      /* ===== Stats bar ===== */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+        margin-top: 70px;
+        padding-top: 44px;
+        border-top: 1px solid var(--border);
+      }
+      .stat .num {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 800;
+        background: linear-gradient(120deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.03em;
+      }
+      .stat .lbl {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      /* ===== About ===== */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 56px;
+      }
+      .about-grid p {
+        font-size: 1.05rem;
+      }
+      .info-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      .info-card h4 {
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--faint);
+        margin-bottom: 18px;
+      }
+      .info-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .info-row:last-child {
+        border-bottom: none;
+      }
+      .info-row i {
+        width: 38px;
+        height: 38px;
+        flex: none;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .info-row .k {
+        font-size: 0.78rem;
+        color: var(--faint);
+      }
+      .info-row .v {
+        font-size: 0.95rem;
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ===== Skills ===== */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 22px;
+      }
+      .skill-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        transition: all 0.25s ease;
+      }
+      .skill-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--ring);
+        box-shadow: var(--shadow);
+      }
+      .skill-card .ico {
+        width: 50px;
+        height: 50px;
+        border-radius: 13px;
+        display: grid;
+        place-items: center;
+        font-size: 1.35rem;
+        background: linear-gradient(135deg, var(--accent-soft), transparent);
+        color: var(--accent);
+        margin-bottom: 18px;
+        border: 1px solid var(--border);
+      }
+      .skill-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 14px;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        padding: 5px 11px;
+        border-radius: 7px;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        color: var(--muted);
+      }
+
+      /* ===== Experience timeline ===== */
+      .timeline {
+        position: relative;
+        max-width: 880px;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 19px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: linear-gradient(
+          180deg,
+          var(--accent),
+          var(--border) 90%
+        );
+      }
+      .tl-item {
+        position: relative;
+        padding: 0 0 38px 64px;
+      }
+      .tl-item:last-child {
+        padding-bottom: 0;
+      }
+      .tl-item .node {
+        position: absolute;
+        left: 8px;
+        top: 4px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 2px solid var(--accent);
+        display: grid;
+        place-items: center;
+      }
+      .tl-item .node::after {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .tl-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 26px;
+        transition: all 0.25s ease;
+      }
+      .tl-card:hover {
+        border-color: var(--ring);
+        box-shadow: var(--shadow);
+      }
+      .tl-top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .tl-role {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .tl-date {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 4px 11px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .tl-company {
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+      }
+      .tl-card p {
+        margin: 0;
+        font-size: 0.97rem;
+      }
+      .tl-card p a {
+        word-break: break-word;
+      }
+
+      /* ===== Projects ===== */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+        gap: 26px;
+      }
+      .project {
+        display: flex;
+        flex-direction: column;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: all 0.25s ease;
+      }
+      .project:hover {
+        transform: translateY(-5px);
+        border-color: var(--ring);
+        box-shadow: var(--shadow);
+      }
+      .project .thumb {
+        display: block;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        position: relative;
+        background: var(--surface-2);
+      }
+      .project .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .project:hover .thumb img {
+        transform: scale(1.06);
+      }
+      .project .body {
+        padding: 22px 24px 24px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .project h4 {
+        font-size: 1.12rem;
+        margin-bottom: 10px;
+      }
+      .project p {
+        font-size: 0.93rem;
+        margin-bottom: 16px;
+        flex: 1;
+      }
+      .project .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .project .plink {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 7px 13px;
+        border-radius: 9px;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+      .project .plink:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-bottom: 14px;
+      }
+
+      /* Featured / interactive project */
+      .project.featured {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .project.featured .demo-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 6px;
+      }
+      .demo-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 4px 10px;
+        border-radius: 999px;
+      }
+      .api-demo {
+        width: 100%;
+        padding: 26px;
+      }
+      .api-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin: 18px 0;
+      }
+      .api-demo label {
+        display: block;
+        font-size: 0.78rem;
+        color: var(--faint);
+        margin-bottom: 6px;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .api-demo textarea,
+      .api-demo input {
+        width: 100%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--text);
+        padding: 11px 13px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+        resize: vertical;
+        transition: border-color 0.2s ease;
+      }
+      .api-demo textarea:focus,
+      .api-demo input:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-soft);
+      }
+      .api-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 4px;
+      }
+      .api-btn {
+        padding: 9px 18px;
+        border-radius: 9px;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.86rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .api-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-soft);
+      }
+      #loadingDiv {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+        color: var(--accent-2);
+        min-height: 1.2em;
+        margin: 12px 0 0;
+      }
+
+      /* ===== Showcase / slideshow ===== */
+      .showcase {
+        position: relative;
+        max-width: 960px;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+      .mySlides {
+        display: none;
+        position: relative;
+      }
+      .mySlides img,
+      .mySlides iframe {
+        width: 100%;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border: 0;
+      }
+      .mySlides iframe {
+        height: 540px;
+        aspect-ratio: auto;
+      }
+      .slide-caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 36px 28px 22px;
+        background: linear-gradient(transparent, rgba(11, 14, 20, 0.9));
+        font-weight: 600;
+        font-size: 1.05rem;
+        color: #fff;
+        pointer-events: none;
+      }
+      .numbertext {
+        position: absolute;
+        top: 16px;
+        left: 18px;
+        z-index: 3;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: #fff;
+        background: rgba(11, 14, 20, 0.7);
+        padding: 5px 11px;
+        border-radius: 999px;
+      }
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 4;
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(11, 14, 20, 0.6);
+        color: #fff;
+        cursor: pointer;
+        user-select: none;
+        font-size: 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: background 0.2s ease;
+      }
+      .prev:hover,
+      .next:hover {
+        background: var(--accent);
+      }
+      .prev {
+        left: 14px;
+      }
+      .next {
+        right: 14px;
+      }
+      .dots {
+        text-align: center;
+        margin-top: 22px;
+      }
+      .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background: var(--border);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .dot.active,
+      .dot:hover {
+        background: var(--accent);
+        transform: scale(1.2);
+      }
+
+      /* ===== Education & Achievements ===== */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px;
+      }
+      .panel > h3 {
+        font-size: 1.25rem;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .panel > h3 i {
+        color: var(--accent);
+      }
+      .edu-item {
+        padding: 0 0 20px 20px;
+        border-left: 2px solid var(--border);
+        position: relative;
+        margin-bottom: 4px;
+      }
+      .edu-item:last-child {
+        padding-bottom: 0;
+      }
+      .edu-item::before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        top: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .edu-item .deg {
+        font-weight: 700;
+        color: var(--text);
+      }
+      .edu-item .meta {
+        font-size: 0.88rem;
+        color: var(--faint);
+        font-family: "JetBrains Mono", monospace;
+      }
+      .ach-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .ach-list li {
+        display: flex;
+        gap: 13px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+      .ach-list li:last-child {
+        border-bottom: none;
+      }
+      .ach-list li i {
+        color: var(--accent);
+        margin-top: 4px;
+      }
+      .extra-note {
+        margin-top: 22px;
+        font-size: 0.9rem;
+      }
+
+      /* ===== Contact ===== */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .contact-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        transition: all 0.2s ease;
+      }
+      .contact-card:hover {
+        border-color: var(--accent);
+        transform: translateX(4px);
+      }
+      .contact-card i {
+        width: 44px;
+        height: 44px;
+        flex: none;
+        border-radius: 11px;
+        display: grid;
+        place-items: center;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 1.1rem;
+      }
+      .contact-card .k {
+        font-size: 0.76rem;
+        color: var(--faint);
+      }
+      .contact-card .v {
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.95rem;
+        word-break: break-word;
+      }
+      form .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      form .full {
+        grid-column: 1 / -1;
+      }
+      form input,
+      form textarea {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        color: var(--text);
+        padding: 13px 15px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        transition: border-color 0.2s ease;
+      }
+      form input:focus,
+      form textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-soft);
+      }
+      form input::placeholder,
+      form textarea::placeholder {
+        color: var(--faint);
+      }
+      .form-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      /* ===== Footer ===== */
+      footer.site {
+        border-top: 1px solid var(--border);
+        background: var(--bg-alt);
+        padding: 40px 0;
+      }
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+      .footer-inner .copyright {
+        color: var(--faint);
+        font-size: 0.9rem;
+      }
+      .footer-socials {
+        display: flex;
+        gap: 10px;
+      }
+      .footer-socials a {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        transition: all 0.2s ease;
+      }
+      .footer-socials a:hover {
+        color: #fff;
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      /* ===== Reveal animation ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(26px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ===== Responsive ===== */
+      @media (max-width: 980px) {
+        .hero-grid,
+        .about-grid,
+        .contact-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero-portrait {
+          order: -1;
+        }
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 28px;
+        }
+        .api-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 760px) {
+        .nav-links {
+          position: fixed;
+          inset: 72px 0 auto 0;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 4px;
+          background: rgba(11, 14, 20, 0.97);
+          backdrop-filter: blur(14px);
+          border-bottom: 1px solid var(--border);
+          padding: 16px 24px 24px;
+          transform: translateY(-130%);
+          transition: transform 0.3s ease;
+        }
+        .nav-links.open {
+          transform: none;
+        }
+        .nav-links a {
+          padding: 13px 14px;
+          font-size: 1rem;
+        }
+        .nav-toggle {
+          display: grid;
+          place-items: center;
+        }
+        section {
+          padding: 70px 0;
+        }
+        .hero {
+          padding: 80px 0 60px;
+        }
+        form .row {
+          grid-template-columns: 1fr;
+        }
+        .mySlides iframe {
+          height: 300px;
+        }
+        .floating-badge.top {
+          right: 0;
+        }
+        .floating-badge.bottom {
+          left: 0;
+        }
+      }
+    </style>
   </head>
-  <!-- script monetag for ads -->
-  <!-- <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="146143" async data-cfasync="false"></script> -->
-  <body class="is-preload">
-    <section id="header">
-      <header>
-        <span class="image avatar"><img src="images/avatar.png" alt="" /></span>
-        <h1 id="logo"><a href="#">Chand Kiran Singh</a></h1>
-        <p>Senior Software Engineer <br />Zemoso Technologies Pvt. Ltd.</p>
-      </header>
-      <nav id="nav">
-        <ul>
-          <li><a href="#one" class="active">About</a></li>
-          <li><a href="#two">Things I Can Do</a></li>
-          <li><a href="#three">Projects</a></li>
-          <li><a href="#four">Contact</a></li>
-        </ul>
-      </nav>
-      <footer>
-        <ul class="icons">
+
+  <body>
+    <!-- ===================== NAV ===================== -->
+    <header class="nav" id="nav">
+      <div class="wrap nav-inner">
+        <a href="#top" class="brand">
+          <span class="mark">CK</span>
+          <span>Chand Kiran Singh</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
           <li>
             <a
-              href="https://www.linkedin.com/in/chand-kiran-singh-a64222125/"
-              class="icon brands fa-linkedin-in"
-              ><span class="label">Twitter</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/chandkiransing"
-              class="icon brands fa-facebook-f"
-              ><span class="label">Facebook</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/chandkiransingh/"
-              class="icon brands fa-instagram"
-              ><span class="label">Instagram</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://github.com/chandkiransingh"
-              class="icon brands fa-github"
-              ><span class="label">Github</span></a
-            >
-          </li>
-          <li>
-            <a href="mailto:rs695013@gmail.com" class="icon solid fa-envelope"
-              ><span class="label">Email</span></a
+              class="nav-cta"
+              href="assets/Chand_Kiran_Singh_Resume.pdf"
+              target="_blank"
+              ><i class="fas fa-download"></i>Resume</a
             >
           </li>
         </ul>
-      </footer>
+      </div>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <span id="top"></span>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="reveal">
+            <span class="status-pill">
+              <span class="status-dot"></span> Available for impactful
+              engineering work
+            </span>
+            <h1>
+              Hi, I'm <span class="grad">Chand Kiran Singh</span>
+            </h1>
+            <div class="role">
+              Senior Software Engineer <span class="at">@</span> Zemoso
+              Technologies
+            </div>
+            <p class="intro">
+              Full-stack engineer specializing in <strong>Node.js</strong> and
+              <strong>Angular</strong>, with 5+ years designing, building and
+              scaling complex web applications — from CRM integrations serving
+              a million+ users to enterprise automation for the insurance
+              sector.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects"
+                ><i class="fas fa-layer-group"></i> View My Work</a
+              >
+              <a
+                class="btn btn-ghost"
+                href="assets/Chand_Kiran_Singh_Resume.pdf"
+                target="_blank"
+                ><i class="fas fa-file-arrow-down"></i> Download Resume</a
+              >
+            </div>
+            <div class="hero-socials">
+              <a
+                href="https://github.com/chandkiransingh"
+                target="_blank"
+                title="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/chand-kiran-singh-a64222125/"
+                target="_blank"
+                title="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/chandkiransing"
+                target="_blank"
+                title="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/chandkiransingh/"
+                target="_blank"
+                title="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="mailto:chandkiransingh04@gmail.com" title="Email"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="hero-portrait reveal">
+            <div class="frame">
+              <img src="images/avatar.png" alt="Chand Kiran Singh" />
+            </div>
+            <div class="floating-badge top">
+              <i class="fas fa-code"></i>
+              <span
+                >Full-Stack<br /><small>Node.js · Angular</small></span
+              >
+            </div>
+            <div class="floating-badge bottom">
+              <i class="fas fa-mobile-screen"></i>
+              <span>1M+ users<br /><small>shipped to production</small></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat">
+            <div class="num">5+</div>
+            <div class="lbl">Years of Experience</div>
+          </div>
+          <div class="stat">
+            <div class="num">5</div>
+            <div class="lbl">Apps in Production</div>
+          </div>
+          <div class="stat">
+            <div class="num">1M+</div>
+            <div class="lbl">Users Served</div>
+          </div>
+          <div class="stat">
+            <div class="num">M.Tech</div>
+            <div class="lbl">AI &amp; Robotics</div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <div id="wrapper">
-      <div id="main">
-        <section id="one">
-          <div class="image_main" data-position="center">
-            <!-- <img src="images/banner.jpg" alt="" /> -->
-
-            <div class="slideshow-container">
-              <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
-                <a href="https://bhartischool.iitd.ac.in/mec-5g/team.html"><img
-                  src="images/1.jpg"
-                  style="width: 100%; border-radius: 10px"
-                /></a>
-                <div class="text">Indian Institute of Technology Delhi</div>
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="tint">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="reveal">
+            <span class="eyebrow">About</span>
+            <h2 class="section-title">
+              Building software that's scalable, reliable &amp; a pleasure to
+              use
+            </h2>
+            <p>
+              I'm a dedicated and proficient Senior Software Engineer with
+              extensive experience designing, developing and maintaining
+              complex web applications. My work spans the full stack — from
+              architecting APIs and managing databases to crafting frontend
+              experiences with reduced friction, micro-interactions and
+              thoughtful loading states.
+            </p>
+            <p>
+              I'm skilled in modern web technologies including
+              <strong>Angular.js</strong>, <strong>Node.js</strong>,
+              <strong>Docker</strong>, <strong>Express</strong> and CI/CD
+              pipelines using <strong>Jenkins</strong>, with disciplined code
+              versioning on <strong>GitHub</strong>. I hold a Master's in
+              Artificial Intelligence &amp; Robotics and have hands-on research
+              experience at IIT Delhi.
+            </p>
+            <p>
+              I care about clean architecture, measurable performance, and
+              shipping products that real people rely on every day.
+            </p>
+          </div>
+          <div class="info-card reveal">
+            <h4>Quick Info</h4>
+            <div class="info-row">
+              <i class="fas fa-briefcase"></i>
+              <div>
+                <div class="k">Current Role</div>
+                <div class="v">Senior Software Engineer 2 · Zemoso</div>
               </div>
-              <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img
-                  src="images/2.jpg"
-                  style="width: 100%; border-radius: 10px"
-                />
-                <div class="text">Indian Institute of Technology Delhi</div>
-              </div>
-              <div class="mySlides fade" style="border-radius: 10px">
-                <div class="numbertext">3 / 3</div>
-                <iframe
-                  width="100%"
-                  height="615"
-                  src="https://www.youtube.com/embed/0BS9e-tI8PA"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                  border-radius="30px"
-                ></iframe>
-                <div class="text">Indian Institute of Technology Delhi</div>
-              </div>
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
-            <br />
-            <div style="text-align: center">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
+            <div class="info-row">
+              <i class="fas fa-graduation-cap"></i>
+              <div>
+                <div class="k">Education</div>
+                <div class="v">M.Tech, AI &amp; Robotics</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-code"></i>
+              <div>
+                <div class="k">Focus</div>
+                <div class="v">Full-Stack · Node.js &amp; Angular</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-location-dot"></i>
+              <div>
+                <div class="k">Location</div>
+                <div class="v">India</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <div class="k">Email</div>
+                <div class="v">chandkiransingh04@gmail.com</div>
+              </div>
             </div>
           </div>
-          <div class="container" style="width: auto">
-            <header class="major">
-              <h3>A Little About Myself</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills">
+      <div class="wrap">
+        <span class="eyebrow">Skills</span>
+        <h2 class="section-title">Technologies I work with</h2>
+        <p class="section-lead">
+          A versatile toolkit built across product startups and enterprise
+          engineering teams — spanning frontend, backend, data and mobile.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <div class="ico"><i class="fas fa-laptop-code"></i></div>
+            <h4>Frontend</h4>
+            <div class="tags">
+              <span class="tag">Angular.js ≥ v8</span>
+              <span class="tag">React.js</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">jQuery</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="ico"><i class="fas fa-server"></i></div>
+            <h4>Backend</h4>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">PHP</span>
+              <span class="tag">Python</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Cron Jobs</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="ico"><i class="fas fa-database"></i></div>
+            <h4>Databases</h4>
+            <div class="tags">
+              <span class="tag">MySQL</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Realtime DB</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="ico"><i class="fas fa-gears"></i></div>
+            <h4>DevOps &amp; Tools</h4>
+            <div class="tags">
+              <span class="tag">Docker</span>
+              <span class="tag">Jenkins</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Git &amp; GitHub</span>
+              <span class="tag">Bash Scripting</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="ico"><i class="fas fa-mobile-screen-button"></i></div>
+            <h4>Mobile</h4>
+            <div class="tags">
+              <span class="tag">Android</span>
+              <span class="tag">Java</span>
+              <span class="tag">XML</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="ico"><i class="fas fa-robot"></i></div>
+            <h4>AI &amp; Robotics</h4>
+            <div class="tags">
+              <span class="tag">Reinforcement Learning</span>
+              <span class="tag">Genetic Algorithms</span>
+              <span class="tag">Unity 3D</span>
+              <span class="tag">Raspberry Pi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section id="experience" class="tint">
+      <div class="wrap">
+        <span class="eyebrow">Career</span>
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-lead">
+          A track record of delivering production software across product
+          startups, analytics platforms and enterprise engineering services.
+        </p>
+
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <span class="node"></span>
+            <div class="tl-card">
+              <div class="tl-top">
+                <span class="tl-role">Senior Software Engineer 2</span>
+                <span class="tl-date">Jul 2024 – Present</span>
+              </div>
+              <div class="tl-company">Zemoso Technologies Pvt. Ltd.</div>
               <p>
-                A dedicated and proficient Senior Software Engineer with extensive
-                experience in designing, developing, and maintaining complex web
-                applications. Skilled in modern web technologies including
-                Angular.js, Node.js, Docker, Express, and CI/CD pipelines using
-                Jenkins, maintaining code versioning using GitHub.
+                Advancing complex software solutions across a diverse set of
+                modern technology stacks, with a focus on systems that are both
+                scalable and high-performing. Continuously refining engineering
+                practices while developing and optimizing production-grade
+                products.
               </p>
-            </header>
+            </div>
           </div>
-        </section>
 
-        <section id="two">
-          <div class="container">
-            <h3>Things I Can Do</h3>
-            <p>Here are the skills I can work on.</p>
-            <ul class="feature-icons">
-              <li class="icon solid fa-code">Angular.Js, Javascript, jQuery</li>
-              <li class="icon solid fa-code">Node.Js, PHP, Bash Scripting</li>
-              <li class="icon solid fa-database">
-                MySql, MongoDB, Firebase - Realtime Database
-              </li>
-              <li class="icon solid fa-cubes">Android Development</li>
-            </ul>
+          <div class="tl-item reveal">
+            <span class="node"></span>
+            <div class="tl-card">
+              <div class="tl-top">
+                <span class="tl-role">Full Stack Developer</span>
+                <span class="tl-date">Mar 2023 – Jul 2024</span>
+              </div>
+              <div class="tl-company">LUMIQ · Crisp Analytics Pvt. Ltd.</div>
+              <p>
+                Part of the UNIFIED team delivering services to CHOICE (Canara
+                HSBC Oriental Bank of Commerce Life Insurance). Built
+                automation for the insurance domain — including Aadhaar masking,
+                a user insurance validation system, and DEQC for multi-insured
+                policies — streamlining previously manual workflows.
+              </p>
+            </div>
           </div>
-        </section>
 
-        <section id="three">
-          <div class="container">
-            <h3>Projects</h3>
-            <div class="features">
-              <article>
+          <div class="tl-item reveal">
+            <span class="node"></span>
+            <div class="tl-card">
+              <div class="tl-top">
+                <span class="tl-role">Associate Software Engineer</span>
+                <span class="tl-date">Apr 2021 – Feb 2023</span>
+              </div>
+              <div class="tl-company">Gupshup Pvt. Ltd.</div>
+              <p>
+                Built conversational bots across feedback, ticketing, payments,
+                banking services and medical consultation use cases. Authored a
+                reusable bot generator for the team, published on npm —
                 <a
+                  href="https://www.npmjs.com/package/generator-gupshup-bot-ck"
+                  target="_blank"
+                  >generator-gupshup-bot-ck</a
+                >.
+              </p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <span class="node"></span>
+            <div class="tl-card">
+              <div class="tl-top">
+                <span class="tl-role">Software Developer Engineer</span>
+                <span class="tl-date">Jan 2020 – Feb 2021</span>
+              </div>
+              <div class="tl-company">SaaS Labs Pvt. Ltd.</div>
+              <p>
+                Integrated Outreach, Salesmate, Shopify, Infusionsoft and
+                various CRMs while helping manage the
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.saaslabs.justcall&hl=en_IN"
+                  target="_blank"
+                  >JustCall app</a
+                >
+                with over a million users. Owned API creation, cron management
+                and database handling, and improved frontend UX through reduced
+                clicks, micro-interactions and dedicated loading screens using
+                custom JS &amp; CSS.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects">
+      <div class="wrap">
+        <span class="eyebrow">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-lead">
+          A selection of products and tools I've designed and shipped — try the
+          live API demo below, then explore the apps on Google Play.
+        </p>
+
+        <div class="projects-grid">
+          <!-- Featured interactive API project -->
+          <article class="project featured reveal">
+            <div class="api-demo">
+              <div class="demo-head">
+                <span class="demo-badge">Live Demo</span>
+                <h4 style="margin: 0">
+                  Authentication &amp; Spam-Detection REST APIs
+                </h4>
+              </div>
+              <p>
+                A Node.js + Firebase backend exposing Register, Login, Search
+                and Mark-as-Spam endpoints with token-based auth. Try it live —
+                register a user, log in to get a token, then search or report.
+                (<a
                   href="https://authenticate-c4219-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json"
                   target="_blank"
-                  class="image"
-                  ><img src="images/pic04.png" alt=""
-                /></a>
-                <div class="inner">
-                  <h4>Register, Login User, Search and Mark as Spam APIs</h4>
-                  <div style="display: flex;">
-                    <textarea id="token" style="margin: 10px;" placeholder="Token" cols="10" rows="1"></textarea>
-                    <textarea id="username" style="margin: 10px;" placeholder="Search User" cols="10" rows="1"></textarea>
-                  </div>
-                  <div style="display: flex;">
-                    <textarea id="payload" placeholder='Payload - {"phoneNumber":"1234567890","password":"mypass"}' cols="40" rows="5"></textarea>
-                    <textarea id="result" placeholder="Response" cols="40" rows="5"></textarea>
-                  </div>
-                  <p id="loadingDiv"></p>
-                  <div style="display: flex;">
+                  >view stored data</a
+                >)
+              </p>
 
-                      <button id="register" title='{
-                        "name":"yourName",
-                        "email":"email@domain.com",
-                        "phoneNumber":"1234657890",
-                        "password":"myPassword"
-                      }' style="margin: 5px;" class="button-22" onclick="registerData()">Register</button>
-
-                      <button id="login" title='{
-                        "phoneNumber":"8034567902",
-                        "password":"hashThisPassword"
-                      }' style="margin: 5px;" class="button-22" onclick="loginData()">Login</button>
-
-                      <button id="search" title='Enter Token and Name' style="margin: 5px;" class="button-22" onclick="searchData()">Search</button>
-
-                      <button id="spam" title='Enter Token and {
-                        "phoneNumber":"1234567890",
-                        "reason":"eg. Telecaller"
-                      }' style="margin: 5px;" class="button-22" onclick="spamData()">Spam</button>
-
-                  </div>
-                  <p>
-                    The Register API allows new users to create an account by providing their details. The Login API enables users to authenticate with their username and password, generating a token upon success. The Search API lets users find specific information or items by providing search parameters, returning matching results. The Mark as Spam API allows users to report content as spam by providing the content ID.
-                  </p>
-                </div>
-              </article>
-              <article>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.saaslabs.justcall&hl=en&gl=US&pli=1"
-                  target="_blank"
-                  class="image"
-                  ><img src="images/justcall.webp" alt=""
-                /></a>
-                <div class="inner">
-                  <h4>JustCall - Cloud Phone System</h4>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.saaslabs.justcall&hl=en&gl=US&pli=1"
-                    target="_blank"
-                    >https://play.google.com/store/apps/details?id=com.saaslabs.justcall&hl=en&gl=US&pli=1</a
-                  >
-                  <p>
-                    JustCall is a cloud-based phone system for businesses to get
-                    phone numbers in 58 countries, make & receive phone calls
-                    from mobile or desktop. All calls get logged and recorded.
-                    Along with telephony features, you also conference call
-                    hosting and more.
-                  </p>
-                </div>
-              </article>
-              <article>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.ck.bams"
-                  target="_blank"
-                  class="image"
-                  ><img src="images/pic01.jpg" alt=""
-                /></a>
-                <div class="inner">
-                  <h4>BAMS - Bluetooth Attendance Management System</h4>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.ck.bams"
-                    target="_blank"
-                    >https://play.google.com/store/apps/details?id=com.ck.bams</a
-                  >
-                  <p>
-                    As the name implies I have designed a modern attendance
-                    system using bluetooth technology which is available in most
-                    of the smartphones.
-                  </p>
-                </div>
-              </article>
-              <article>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.ck.whatsappstatusdownloader"
-                  target="_blank"
-                  class="image"
-                  ><img src="images/pic02.jpg" alt=""
-                /></a>
-                <div class="inner">
-                  <h4>WSD - Status Downloader</h4>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.ck.whatsappstatusdownloader"
-                    target="_blank"
-                    >https://play.google.com/store/apps/details?id=com.ck.whatsappstatusdownloader</a
-                  >
-                  <p>
-                    WSD is a status downloader for whatsapp so that users can
-                    download all the video and images of someone other's status.
-                  </p>
-                </div>
-              </article>
-              <article>
-                <a
-                  href="https://play.google.com/store/apps/details?id=uk.com.avikalimited.avi"
-                  target="_blank"
-                  class="image"
-                  ><img src="images/pic03.jpg" alt=""
-                /></a>
-                <div class="inner">
-                  <h4>AVI</h4>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=uk.com.avikalimited.avi"
-                    target="_blank"
-                    >https://play.google.com/store/apps/details?id=uk.com.avikalimited.avi</a
-                  >
-                  <p>
-                    AVI is a Lancashire, England based startup working on
-                    digitializing the paper receipts to reduce the usage of
-                    paper in generating receipts.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="four">
-          <div class="container">
-            <h3>Contact Me</h3>
-            <p>
-              Fill out the form below and a I will contact you as soon as
-              possible.
-            </p>
-            <form method="post" action="#">
-              <div class="row gtr-uniform">
-                <div class="col-6 col-12-xsmall">
-                  <input type="text" name="name" id="name" placeholder="Name" />
-                </div>
-                <div class="col-6 col-12-xsmall">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="col-12">
-                  <input
-                    type="text"
-                    name="subject"
-                    id="subject"
-                    placeholder="Subject"
-                  />
-                </div>
-                <div class="col-12">
+              <div class="api-grid">
+                <div>
+                  <label for="token">Auth Token</label>
                   <textarea
-                    name="message"
-                    id="message"
-                    placeholder="Message"
-                    rows="6"
+                    id="token"
+                    placeholder="Paste token after login"
+                    rows="2"
                   ></textarea>
                 </div>
-                <div class="col-12">
-                  <ul class="actions">
-                    <li>
-                      <input
-                        type="submit"
-                        class="primary"
-                        value="Send Message"
-                      />
-                    </li>
-                    <li><input type="reset" value="Reset Form" /></li>
-                  </ul>
+                <div>
+                  <label for="username">Search User</label>
+                  <textarea
+                    id="username"
+                    placeholder="Name to search"
+                    rows="2"
+                  ></textarea>
+                </div>
+                <div>
+                  <label for="payload">Request Payload (JSON)</label>
+                  <textarea
+                    id="payload"
+                    placeholder='{"phoneNumber":"1234567890","password":"mypass"}'
+                    rows="5"
+                  ></textarea>
+                </div>
+                <div>
+                  <label for="result">Response</label>
+                  <textarea
+                    id="result"
+                    placeholder="Response appears here…"
+                    rows="5"
+                  ></textarea>
                 </div>
               </div>
-            </form>
-          </div>
-        </section>
-      </div>
 
-      <section id="footer">
-        <div class="container">
-          <ul class="copyright">
-            <li>&copy;chandkiransingh. All rights reserved.</li>
-          </ul>
+              <div class="api-buttons">
+                <button
+                  id="register"
+                  title='{"name":"yourName","email":"email@domain.com","phoneNumber":"1234657890","password":"myPassword"}'
+                  class="api-btn"
+                  onclick="registerData()"
+                >
+                  Register
+                </button>
+                <button
+                  id="login"
+                  title='{"phoneNumber":"8034567902","password":"hashThisPassword"}'
+                  class="api-btn"
+                  onclick="loginData()"
+                >
+                  Login
+                </button>
+                <button
+                  id="search"
+                  title="Enter Token and Name"
+                  class="api-btn"
+                  onclick="searchData()"
+                >
+                  Search
+                </button>
+                <button
+                  id="spam"
+                  title='Enter Token and {"phoneNumber":"1234567890","reason":"eg. Telecaller"}'
+                  class="api-btn"
+                  onclick="spamData()"
+                >
+                  Mark as Spam
+                </button>
+              </div>
+              <p id="loadingDiv"></p>
+            </div>
+          </article>
+
+          <!-- JustCall -->
+          <article class="project reveal">
+            <a
+              class="thumb"
+              href="https://play.google.com/store/apps/details?id=com.saaslabs.justcall&hl=en&gl=US&pli=1"
+              target="_blank"
+            >
+              <img src="images/justcall.webp" alt="JustCall" />
+            </a>
+            <div class="body">
+              <div class="project-tags">
+                <span class="tag">CRM Integrations</span>
+                <span class="tag">1M+ users</span>
+              </div>
+              <h4>JustCall — Cloud Phone System</h4>
+              <p>
+                A cloud-based phone system letting businesses get numbers in 58
+                countries and make, receive, log &amp; record calls from mobile
+                or desktop — plus conference hosting. I worked on CRM
+                integrations, APIs and frontend UX.
+              </p>
+              <div class="links">
+                <a
+                  class="plink"
+                  href="https://play.google.com/store/apps/details?id=com.saaslabs.justcall&hl=en&gl=US&pli=1"
+                  target="_blank"
+                  ><i class="fab fa-google-play"></i> Google Play</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- BAMS -->
+          <article class="project reveal">
+            <a
+              class="thumb"
+              href="https://play.google.com/store/apps/details?id=com.ck.bams"
+              target="_blank"
+            >
+              <img src="images/pic01.jpg" alt="BAMS" />
+            </a>
+            <div class="body">
+              <div class="project-tags">
+                <span class="tag">Android</span>
+                <span class="tag">Bluetooth</span>
+              </div>
+              <h4>BAMS — Bluetooth Attendance System</h4>
+              <p>
+                A modern attendance system that uses the Bluetooth technology
+                built into most smartphones to simplify and moderate the
+                traditional attendance process.
+              </p>
+              <div class="links">
+                <a
+                  class="plink"
+                  href="https://play.google.com/store/apps/details?id=com.ck.bams"
+                  target="_blank"
+                  ><i class="fab fa-google-play"></i> Google Play</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- WSD -->
+          <article class="project reveal">
+            <a
+              class="thumb"
+              href="https://play.google.com/store/apps/details?id=com.ck.whatsappstatusdownloader"
+              target="_blank"
+            >
+              <img src="images/pic02.jpg" alt="WSD - Status Downloader" />
+            </a>
+            <div class="body">
+              <div class="project-tags">
+                <span class="tag">Android</span>
+                <span class="tag">Utility</span>
+              </div>
+              <h4>WSD — Status Downloader</h4>
+              <p>
+                A WhatsApp status downloader that lets users save the video and
+                image statuses shared by their contacts directly to their
+                device.
+              </p>
+              <div class="links">
+                <a
+                  class="plink"
+                  href="https://play.google.com/store/apps/details?id=com.ck.whatsappstatusdownloader"
+                  target="_blank"
+                  ><i class="fab fa-google-play"></i> Google Play</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- AVI -->
+          <article class="project reveal">
+            <a
+              class="thumb"
+              href="https://play.google.com/store/apps/details?id=uk.com.avikalimited.avi"
+              target="_blank"
+            >
+              <img src="images/pic03.jpg" alt="AVI" />
+            </a>
+            <div class="body">
+              <div class="project-tags">
+                <span class="tag">Android</span>
+                <span class="tag">FinTech</span>
+              </div>
+              <h4>AVI — Digital Receipts</h4>
+              <p>
+                A Lancashire, England based startup digitizing paper receipts to
+                cut down the paper used in generating receipts — contributing to
+                a greener checkout experience.
+              </p>
+              <div class="links">
+                <a
+                  class="plink"
+                  href="https://play.google.com/store/apps/details?id=uk.com.avikalimited.avi"
+                  target="_blank"
+                  ><i class="fab fa-google-play"></i> Google Play</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Driverless Car -->
+          <article class="project reveal">
+            <a
+              class="thumb"
+              href="https://github.com/chandkiransingh/IOT"
+              target="_blank"
+            >
+              <img src="images/pic04.png" alt="Driverless Car project" />
+            </a>
+            <div class="body">
+              <div class="project-tags">
+                <span class="tag">AI</span>
+                <span class="tag">Reinforcement Learning</span>
+                <span class="tag">Unity 3D</span>
+              </div>
+              <h4>Driverless Car — AI &amp; Genetic Algorithms</h4>
+              <p>
+                My B.Tech major project: a self-driving vehicle concept based on
+                reinforcement learning, simulated in Unity 3D and implemented on
+                hardware with a Raspberry Pi and supporting components.
+              </p>
+              <div class="links">
+                <a
+                  class="plink"
+                  href="https://github.com/chandkiransingh/IOT"
+                  target="_blank"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+              </div>
+            </div>
+          </article>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <!-- ===================== SHOWCASE / RESEARCH ===================== -->
+    <section id="research" class="tint">
+      <div class="wrap">
+        <span class="eyebrow">Research</span>
+        <h2 class="section-title">Robotics &amp; 5G Research at IIT Delhi</h2>
+        <p class="section-lead">
+          As a Research Scientist trainee, I contributed to a Robotics and MEC
+          5G testbed at the Indian Institute of Technology, Delhi.
+        </p>
+
+        <div class="showcase reveal">
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <div class="numbertext">01 / 03</div>
+              <a
+                href="https://bhartischool.iitd.ac.in/mec-5g/team.html"
+                target="_blank"
+              >
+                <img src="images/1.jpg" alt="IIT Delhi research" />
+              </a>
+              <div class="slide-caption">Indian Institute of Technology Delhi</div>
+            </div>
+            <div class="mySlides fade">
+              <div class="numbertext">02 / 03</div>
+              <img src="images/2.jpg" alt="IIT Delhi research" />
+              <div class="slide-caption">Indian Institute of Technology Delhi</div>
+            </div>
+            <div class="mySlides fade">
+              <div class="numbertext">03 / 03</div>
+              <iframe
+                src="https://www.youtube.com/embed/0BS9e-tI8PA"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <div class="slide-caption">Indian Institute of Technology Delhi</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+        </div>
+        <div class="dots">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION & ACHIEVEMENTS ===================== -->
+    <section id="education">
+      <div class="wrap">
+        <span class="eyebrow">Background</span>
+        <h2 class="section-title">Education &amp; Achievements</h2>
+        <p class="section-lead">
+          A strong academic foundation in software engineering and AI, paired
+          with leadership and competitive milestones.
+        </p>
+
+        <div class="two-col">
+          <div class="panel reveal">
+            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+            <div class="edu-item">
+              <div class="deg">M.Tech — Artificial Intelligence &amp; Robotics</div>
+              <div class="meta">Gautam Buddha University · 2019 – 2020</div>
+            </div>
+            <div class="edu-item">
+              <div class="deg">B.Tech — Software Engineering</div>
+              <div class="meta">Gautam Buddha University · 2015 – 2019</div>
+            </div>
+
+            <p class="extra-note" style="color: var(--faint); margin-bottom: 10px">
+              Selected training &amp; internships
+            </p>
+            <ul class="ach-list">
+              <li>
+                <i class="fas fa-flask"></i> Research Scientist (trainee) — IIT
+                Delhi, Robotics &amp; MEC 5G testbed
+              </li>
+              <li>
+                <i class="fas fa-mobile-screen"></i> Android Developer Lead —
+                Avika Limited
+              </li>
+              <li>
+                <i class="fas fa-code"></i> Java/J2EE &amp; Android training —
+                Ducat, Greater Noida
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel reveal">
+            <h3><i class="fas fa-trophy"></i> Achievements</h3>
+            <ul class="ach-list">
+              <li>
+                <i class="fas fa-check-circle"></i> Selected to work on a
+                Robotics communication system at IIT Delhi.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> 1st position — Model &amp;
+                Idea Showcase, 2017.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Ranked 5300 nationally on
+                HackerEarth.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Led the technical committee
+                of GBUCL (2017 &amp; 2018).
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Led the university
+                programming club (2017 &amp; 2018).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="tint">
+      <div class="wrap">
+        <span class="eyebrow">Contact</span>
+        <h2 class="section-title">Let's build something together</h2>
+        <p class="section-lead">
+          Fill out the form below and I'll get back to you as soon as possible —
+          or reach me directly through any of the channels.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-cards reveal">
+            <a class="contact-card" href="mailto:chandkiransingh04@gmail.com">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <div class="k">Email</div>
+                <div class="v">chandkiransingh04@gmail.com</div>
+              </div>
+            </a>
+            <a
+              class="contact-card"
+              href="https://www.linkedin.com/in/chand-kiran-singh-a64222125/"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin-in"></i>
+              <div>
+                <div class="k">LinkedIn</div>
+                <div class="v">chand-kiran-singh</div>
+              </div>
+            </a>
+            <a
+              class="contact-card"
+              href="https://github.com/chandkiransingh"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+              <div>
+                <div class="k">GitHub</div>
+                <div class="v">@chandkiransingh</div>
+              </div>
+            </a>
+            <a
+              class="contact-card"
+              href="assets/Chand_Kiran_Singh_Resume.pdf"
+              target="_blank"
+            >
+              <i class="fas fa-file-pdf"></i>
+              <div>
+                <div class="k">Resume</div>
+                <div class="v">Download PDF</div>
+              </div>
+            </a>
+          </div>
+
+          <form
+            class="reveal"
+            method="post"
+            action="https://formsubmit.co/chandkiransingh04@gmail.com"
+          >
+            <div class="row">
+              <input type="text" name="name" placeholder="Your name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+              />
+            </div>
+            <div style="margin-top: 16px">
+              <input type="text" name="subject" placeholder="Subject" />
+            </div>
+            <div style="margin-top: 16px">
+              <textarea
+                name="message"
+                placeholder="Your message"
+                rows="6"
+                required
+              ></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+              <button type="reset" class="btn btn-ghost">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site">
+      <div class="wrap footer-inner">
+        <div class="copyright">
+          &copy; <span id="year"></span> Chand Kiran Singh. All rights reserved.
+        </div>
+        <div class="footer-socials">
+          <a href="https://github.com/chandkiransingh" target="_blank" title="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/chand-kiran-singh-a64222125/"
+            target="_blank"
+            title="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/chandkiransing"
+            target="_blank"
+            title="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/chandkiransingh/"
+            target="_blank"
+            title="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="mailto:chandkiransingh04@gmail.com" title="Email"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <script src="assets/js/jquery.min.js"></script>
     <script>
+      // Year
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      // Mobile nav toggle
+      var navToggle = document.getElementById("navToggle");
+      var navLinks = document.getElementById("navLinks");
+      navToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("open");
+      });
+      navLinks.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          navLinks.classList.remove("open");
+        });
+      });
+
+      // Navbar shadow on scroll + active link
+      var nav = document.getElementById("nav");
+      var sections = document.querySelectorAll("section[id]");
+      var linkMap = {};
+      navLinks.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        linkMap[a.getAttribute("href").slice(1)] = a;
+      });
+      window.addEventListener("scroll", function () {
+        nav.classList.toggle("scrolled", window.scrollY > 10);
+        var cur = "";
+        sections.forEach(function (s) {
+          if (window.scrollY >= s.offsetTop - 140) cur = s.id;
+        });
+        Object.keys(linkMap).forEach(function (id) {
+          linkMap[id].classList.toggle("active", id === cur);
+        });
+      });
+
+      // Reveal on scroll
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".reveal").forEach(function (el) {
+        io.observe(el);
+      });
+
+      // ===== Slideshow =====
       var slideIndex = 1;
       showSlides(slideIndex);
-
       function plusSlides(n) {
         showSlides((slideIndex += n));
       }
-
       function currentSlide(n) {
         showSlides((slideIndex = n));
       }
-
       function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {
-          slideIndex = 1;
-        }
-        if (n < 1) {
-          slideIndex = slides.length;
-        }
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
+        if (n > slides.length) slideIndex = 1;
+        if (n < 1) slideIndex = slides.length;
+        for (i = 0; i < slides.length; i++) slides[i].style.display = "none";
+        for (i = 0; i < dots.length; i++)
           dots[i].className = dots[i].className.replace(" active", "");
-        }
         slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
+        if (dots[slideIndex - 1])
+          dots[slideIndex - 1].className += " active";
       }
 
-      // document.getElementById('login').addEventListener('click', fetchData);
-
+      // ===== Live API demo (unchanged endpoints) =====
       function loginData() {
-        $('#loadingDiv').text('Loading...')
-
-        let payload = $('#payload').val();
-        payload = payload.replace(/(\r\n|\n|\r)/gm, "");
-        payload = payload.trim();
-        console.log(payload)
+        $("#loadingDiv").text("Loading...");
+        let payload = $("#payload").val();
+        payload = payload.replace(/(\r\n|\n|\r)/gm, "").trim();
         var settings = {
-          "url": "https://nodejs-authenticate.onrender.com/portal/api/login",
-          "method": "POST",
-          "timeout": 0,
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "data": JSON.stringify(JSON.parse(payload)),
-          "timeout": 5000,
+          url: "https://nodejs-authenticate.onrender.com/portal/api/login",
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          data: JSON.stringify(JSON.parse(payload)),
+          timeout: 5000,
         };
-        console.log(
-          "settings ",settings
-        )
-        $.ajax(settings).done(function (response) {
-          $('#loadingDiv').text('')
-          document.getElementById('result').value = JSON.stringify(response);
-        })
-        .fail(function(error) {
-          console.log("error: ",error)
-          console.log("error?.responseJSON: ",error?.responseJSON)
-          if(error?.responseJSON?.error){
-            $('#loadingDiv').text(`Error: ${error.responseJSON.error}`);            
-          }
-          else{
-            $('#loadingDiv').text(`Error: ${error.message}`);
-          }
-        });
+        $.ajax(settings)
+          .done(function (response) {
+            $("#loadingDiv").text("");
+            document.getElementById("result").value =
+              JSON.stringify(response);
+          })
+          .fail(function (error) {
+            if (error?.responseJSON?.error)
+              $("#loadingDiv").text(`Error: ${error.responseJSON.error}`);
+            else $("#loadingDiv").text(`Error: ${error.message}`);
+          });
       }
 
       function registerData() {
-        $('#loadingDiv').text('Loading...')
-
-        let payload = $('#payload').val();
-        payload = payload.replace(/(\r\n|\n|\r)/gm, "");
-        payload = payload.trim();
-        console.log(payload)
+        $("#loadingDiv").text("Loading...");
+        let payload = $("#payload").val();
+        payload = payload.replace(/(\r\n|\n|\r)/gm, "").trim();
         var settings = {
-          "url": "https://nodejs-authenticate.onrender.com/portal/api/createuser",
-          "method": "POST",
-          "timeout": 0,
-          "headers": {
-            "Content-Type": "application/json"
-          },
-          "data": JSON.stringify(JSON.parse(payload)),
-          "timeout": 5000,
+          url: "https://nodejs-authenticate.onrender.com/portal/api/createuser",
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          data: JSON.stringify(JSON.parse(payload)),
+          timeout: 5000,
         };
-        console.log(
-          "settings ",settings
-        )
-
-        $.ajax(settings).done(function (response) {
-          $('#loadingDiv').text('')
-          document.getElementById('result').value = JSON.stringify(response);
-        })
-        .fail(function(error) {
-          console.log("error: ",error)
-          console.log("error?.responseJSON: ",error?.responseJSON)
-          if(error?.responseJSON?.error){
-            $('#loadingDiv').text(`Error: ${error.responseJSON.error}`);            
-          }
-          else{
-            $('#loadingDiv').text(`Error: ${error.message}`);
-          }
-        });
+        $.ajax(settings)
+          .done(function (response) {
+            $("#loadingDiv").text("");
+            document.getElementById("result").value =
+              JSON.stringify(response);
+          })
+          .fail(function (error) {
+            if (error?.responseJSON?.error)
+              $("#loadingDiv").text(`Error: ${error.responseJSON.error}`);
+            else $("#loadingDiv").text(`Error: ${error.message}`);
+          });
       }
 
       function searchData() {
-        $('#loadingDiv').text('Loading...')
-
-        let token = $('#token').val();
-        let username = $('#username').val();
-        // payload = payload.replace(/(\r\n|\n|\r)/gm, "");
-        token = token.trim();
-        console.log("token: ",token);
+        $("#loadingDiv").text("Loading...");
+        let token = $("#token").val().trim();
+        let username = $("#username").val();
         var settings = {
-          "url": "https://nodejs-authenticate.onrender.com/portal/api/search/name/"+username,
-          "method": "GET",
-          "timeout": 0,
-          "headers": {
-            "Authorization": "Bearer "+token,
-            "Content-Type": "application/json"
+          url:
+            "https://nodejs-authenticate.onrender.com/portal/api/search/name/" +
+            username,
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
           },
-          "timeout": 5000,
+          timeout: 5000,
         };
-        console.log(
-          "settings ",settings
-        )
-
-        $.ajax(settings).done(function (response) {
-          $('#loadingDiv').text('')
-          document.getElementById('result').value = JSON.stringify(response);
-        })
-        .fail(function(error) {
-          console.log("error: ",error)
-          console.log("error?.responseJSON: ",error?.responseJSON)
-          if(error?.responseJSON?.error){
-            $('#loadingDiv').text(`Error: ${error.responseJSON.error}`);            
-          }
-          else{
-            $('#loadingDiv').text(`Error: ${error.message}`);
-          }
-        });
+        $.ajax(settings)
+          .done(function (response) {
+            $("#loadingDiv").text("");
+            document.getElementById("result").value =
+              JSON.stringify(response);
+          })
+          .fail(function (error) {
+            if (error?.responseJSON?.error)
+              $("#loadingDiv").text(`Error: ${error.responseJSON.error}`);
+            else $("#loadingDiv").text(`Error: ${error.message}`);
+          });
       }
-
 
       function spamData() {
-        $('#loadingDiv').text('Loading...')
-
-        let token = $('#token').val();
-        let payload = $('#payload').val();
-        payload = payload.replace(/(\r\n|\n|\r)/gm, "");
-        token = token.trim();
-        payload = payload.trim();
-        console.log("token: ",token);
-        console.log("payload: ",payload);
+        $("#loadingDiv").text("Loading...");
+        let token = $("#token").val().trim();
+        let payload = $("#payload").val();
+        payload = payload.replace(/(\r\n|\n|\r)/gm, "").trim();
         var settings = {
-          "url": "https://nodejs-authenticate.onrender.com/portal/api/spam",
-          "method": "POST",
-          "timeout": 0,
-          "headers": {
-            "Authorization": "Bearer "+token,
-            "Content-Type": "application/json"
+          url: "https://nodejs-authenticate.onrender.com/portal/api/spam",
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
           },
-          "data": JSON.stringify(JSON.parse(payload)),
-          "timeout": 5000,
+          data: JSON.stringify(JSON.parse(payload)),
+          timeout: 5000,
         };
-        console.log(
-          "settings ",settings
-        )
-
-        $.ajax(settings).done(function (response) {
-          $('#loadingDiv').text('')
-          document.getElementById('result').value = JSON.stringify(response);
-        })
-        .fail(function(error) {
-          console.log("error: ",error)
-          console.log("error?.responseJSON: ",error?.responseJSON)
-          if(error?.responseJSON?.error){
-            $('#loadingDiv').text(`Error: ${error.responseJSON.error}`);            
-          }
-          else{
-            $('#loadingDiv').text(`Error: ${error.message}`);
-          }
-        });
+        $.ajax(settings)
+          .done(function (response) {
+            $("#loadingDiv").text("");
+            document.getElementById("result").value =
+              JSON.stringify(response);
+          })
+          .fail(function (error) {
+            if (error?.responseJSON?.error)
+              $("#loadingDiv").text(`Error: ${error.responseJSON.error}`);
+            else $("#loadingDiv").text(`Error: ${error.message}`);
+          });
       }
-
     </script>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
   </body>
 </html>
