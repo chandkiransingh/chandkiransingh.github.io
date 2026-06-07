@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chand Kiran Singh — Resume</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 13mm 14mm;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+        --accent: #e8473c;
+        --accent-soft: #fdecea;
+        --ink: #1c2330;
+        --muted: #4b5566;
+        --faint: #717c8c;
+        --line: #e3e7ee;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", -apple-system, Roboto, Helvetica, Arial,
+          sans-serif;
+        color: var(--ink);
+        font-size: 10.2px;
+        line-height: 1.42;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* ===== Header ===== */
+      .head {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding-bottom: 14px;
+        border-bottom: 3px solid var(--accent);
+        margin-bottom: 16px;
+      }
+      .monogram {
+        flex: none;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 3px solid var(--accent);
+        color: var(--accent);
+        display: grid;
+        place-items: center;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+      .head h1 {
+        margin: 0 0 2px;
+        font-size: 23px;
+        letter-spacing: 0.5px;
+        color: var(--ink);
+      }
+      .head .title {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 5px;
+      }
+      .head .contact {
+        font-size: 9.6px;
+        color: var(--muted);
+      }
+      .head .contact span {
+        white-space: nowrap;
+      }
+      .head .contact .sep {
+        color: var(--line);
+        margin: 0 7px;
+      }
+
+      /* ===== Layout ===== */
+      .grid {
+        display: grid;
+        grid-template-columns: 1.05fr 2.35fr;
+        gap: 22px;
+      }
+      .col-r > section:first-child h2 {
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--ink);
+        margin: 0 0 8px;
+        padding-bottom: 4px;
+        border-bottom: 2px solid var(--accent);
+      }
+      section {
+        margin-bottom: 11px;
+      }
+
+      /* ===== Sidebar ===== */
+      .summary {
+        margin: 0;
+        color: var(--muted);
+      }
+      .skill-block {
+        margin-bottom: 5px;
+      }
+      .skill-block .k {
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 9.8px;
+      }
+      .skill-block .v {
+        color: var(--muted);
+        font-size: 9.8px;
+      }
+      .edu-item {
+        margin-bottom: 6px;
+      }
+      .edu-item .deg {
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .edu-item .meta {
+        color: var(--faint);
+        font-size: 9.4px;
+      }
+      .side-list {
+        margin: 0;
+        padding-left: 14px;
+        color: var(--muted);
+      }
+      .side-list li {
+        margin-bottom: 3px;
+      }
+
+      /* ===== Experience ===== */
+      .entry {
+        margin-bottom: 12px;
+        break-inside: avoid;
+      }
+      .entry .role {
+        font-weight: 700;
+        font-size: 11px;
+        color: var(--ink);
+      }
+      .entry .org {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .entry .when {
+        float: right;
+        color: var(--faint);
+        font-size: 9.4px;
+        font-weight: 600;
+      }
+      .entry ul {
+        margin: 5px 0 0;
+        padding-left: 15px;
+        color: var(--muted);
+      }
+      .entry ul li {
+        margin-bottom: 3px;
+      }
+      .entry ul li strong {
+        color: var(--ink);
+      }
+      .proj {
+        margin-bottom: 8px;
+      }
+      .proj .pname {
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .proj .pdesc {
+        color: var(--muted);
+      }
+      .ach {
+        margin: 0;
+        padding-left: 15px;
+        color: var(--muted);
+      }
+      .ach li {
+        margin-bottom: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head">
+      <div class="monogram">CK</div>
+      <div>
+        <h1>CHAND KIRAN SINGH</h1>
+        <div class="title">Senior Software Engineer 2</div>
+        <div class="contact">
+          <span>Greater Noida (NCR), India</span><span class="sep">|</span
+          ><span>+91 80778 51902</span><span class="sep">|</span
+          ><span>chandkiransingh04@gmail.com</span><br />
+          <span><a href="https://www.chandkiransingh.com">www.chandkiransingh.com</a></span
+          ><span class="sep">|</span
+          ><span><a href="https://github.com/chandkiransingh">github.com/chandkiransingh</a></span
+          ><span class="sep">|</span
+          ><span
+            ><a href="https://www.linkedin.com/in/chand-kiran-singh-a64222125/"
+              >linkedin.com/in/chand-kiran-singh</a
+            ></span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- ================= LEFT ================= -->
+      <div class="col-l">
+        <section>
+          <h2>Summary</h2>
+          <p class="summary">
+            Senior Software Engineer with 5+ years building and scaling
+            full-stack web applications in Node.js and Angular — from CRM
+            integrations and conversational bots serving millions of users to
+            enterprise document-automation for the insurance sector. Author of
+            org-wide npm packages and reusable components.
+          </p>
+        </section>
+
+        <section>
+          <h2>Skills</h2>
+          <div class="skill-block">
+            <span class="k">Frontend:</span>
+            <span class="v"
+              >Angular (v8+), React.js, JavaScript, jQuery, HTML5, CSS3</span
+            >
+          </div>
+          <div class="skill-block">
+            <span class="k">Backend:</span>
+            <span class="v">Node.js, Express, PHP, Python, REST APIs, Cron</span>
+          </div>
+          <div class="skill-block">
+            <span class="k">Databases:</span>
+            <span class="v">MySQL, MongoDB, Firebase, Realtime DB</span>
+          </div>
+          <div class="skill-block">
+            <span class="k">DevOps &amp; Tools:</span>
+            <span class="v">Docker, Jenkins, CI/CD, Git &amp; GitHub, Bash</span>
+          </div>
+          <div class="skill-block">
+            <span class="k">Mobile:</span>
+            <span class="v">Android, Java, XML</span>
+          </div>
+          <div class="skill-block">
+            <span class="k">AI &amp; Robotics:</span>
+            <span class="v"
+              >Reinforcement Learning, Genetic Algorithms, Unity 3D, Raspberry
+              Pi</span
+            >
+          </div>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          <div class="edu-item">
+            <div class="deg">M.Tech — Artificial Intelligence &amp; Robotics</div>
+            <div class="meta">Gautam Buddha University · 2019 – 2020</div>
+          </div>
+          <div class="edu-item">
+            <div class="deg">B.Tech — Software Engineering</div>
+            <div class="meta">Gautam Buddha University · 2015 – 2019</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Training &amp; Internships</h2>
+          <ul class="side-list">
+            <li>
+              Research Scientist (trainee) — IIT Delhi, Robotics &amp; MEC 5G
+              testbed
+            </li>
+            <li>Android Developer Lead — Avika Limited (2019)</li>
+            <li>Android Development — Fazzoni Pvt. Ltd. (2018)</li>
+            <li>Java/J2EE &amp; Android — Ducat, Greater Noida (2017–2018)</li>
+            <li>Web Developer — Live Tech Services Pvt. Ltd. (2017)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Achievements</h2>
+          <ul class="ach">
+            <li>
+              Selected to work on a Robotics communication system at IIT Delhi.
+            </li>
+            <li>1st position — Model &amp; Idea Showcase, 2017.</li>
+            <li>Ranked 5300 nationally on HackerEarth.</li>
+            <li>Led the technical committee of GBUCL (2017 &amp; 2018).</li>
+            <li>Led the university programming club (2017 &amp; 2018).</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ================= RIGHT ================= -->
+      <div class="col-r">
+        <section>
+          <h2>Experience</h2>
+
+          <div class="entry">
+            <span class="when">Jul 2024 – Present</span>
+            <div class="role">Senior Software Engineer 2</div>
+            <div class="org">Zemoso Technologies Pvt. Ltd.</div>
+            <ul>
+              <li>
+                Authored <strong>org-wide npm packages</strong> — reusable
+                Angular Material components (a custom paginator &amp; table
+                styler) now used in <strong>every data table</strong> across the
+                organization, eliminating duplicated code and cutting
+                per-feature development effort.
+              </li>
+              <li>
+                Built a <strong>request-caching layer</strong> keyed on URL +
+                payload for infrequently-updated data, reducing redundant API
+                calls, server load and database connections.
+              </li>
+              <li>
+                Designed a <strong>throttled cron-based deletion</strong>
+                architecture for object storage — queues user-requested file
+                deletions and processes them gradually so slow OSS removal never
+                overwhelms the system.
+              </li>
+              <li>
+                <strong>Interviewed candidates and mentored</strong> bench
+                consultants between client engagements.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <span class="when">Mar 2023 – Jul 2024</span>
+            <div class="role">Full Stack Developer</div>
+            <div class="org">LUMIQ · Crisp Analytics Pvt. Ltd.</div>
+            <ul>
+              <li>
+                On the UNIFIED team delivering to CHOICE (Canara HSBC Life
+                Insurance), automated document-heavy insurance workflows
+                previously done entirely by hand.
+              </li>
+              <li>
+                Automated Aadhaar masking, PAN extraction, account-statement
+                reads and minimum-balance checks (via the bank rule engine) —
+                cutting an agent's manual process from
+                <strong>~7 days to ~1 day</strong>.
+              </li>
+              <li>
+                Document data-extraction pipeline reached
+                <strong>99.5% read accuracy</strong>; built DEQC handling for
+                multi-insured policies.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <span class="when">Apr 2021 – Feb 2023</span>
+            <div class="role">Associate Software Engineer</div>
+            <div class="org">Gupshup Pvt. Ltd.</div>
+            <ul>
+              <li>
+                Shipped <strong>50+ conversational bots</strong> across banking,
+                payments, ticketing and feedback — including for
+                <strong>Axis Bank, Hero FinCorp, Mamaearth and 6thStreet</strong>.
+              </li>
+              <li>
+                The Axis Bank bot served <strong>2M+ users</strong> by the time
+                I left.
+              </li>
+              <li>
+                Authored the team's reusable bot generator, published on npm
+                (<a href="https://www.npmjs.com/package/generator-gupshup-bot-ck"
+                  >generator-gupshup-bot-ck</a
+                >), cutting initial bot setup from
+                <strong>~3 days to a few hours</strong>.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <span class="when">Jan 2020 – Feb 2021</span>
+            <div class="role">Software Developer Engineer</div>
+            <div class="org">SaaS Labs Pvt. Ltd.</div>
+            <ul>
+              <li>
+                Built CRM integrations with
+                <strong>Zoho, Zendesk, HighLevel, Outreach</strong> and more;
+                owned API creation, cron management and database handling.
+              </li>
+              <li>
+                <strong>Sole engineer</strong> on migrating the JustCall Android
+                app (<strong>1M+ users, 20M+ business messages</strong>) to
+                AndroidX, and implemented its <strong>merge-calls</strong>
+                feature.
+              </li>
+              <li>
+                Improved frontend UX through reduced clicks, micro-interactions
+                and dedicated loading screens using custom JS &amp; CSS.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Projects</h2>
+          <div class="proj">
+            <span class="pname"
+              >Authentication &amp; Spam-Detection REST APIs</span
+            >
+            <span class="pdesc"
+              >— Node.js + Firebase backend with token-based auth and encrypted
+              passwords; Register/Login/Search/Mark-as-Spam endpoints. Live demo
+              on portfolio.</span
+            >
+          </div>
+          <div class="proj">
+            <span class="pname">Driverless Car — AI &amp; Genetic Algorithms</span>
+            <span class="pdesc"
+              >— B.Tech major: reinforcement-learning self-driving vehicle
+              simulated in Unity 3D, hardware on Raspberry Pi.
+              <a href="https://github.com/chandkiransingh/IOT"
+                >github.com/chandkiransingh/IOT</a
+              ></span
+            >
+          </div>
+          <div class="proj">
+            <span class="pname">BAMS — Bluetooth Attendance System</span>
+            <span class="pdesc"
+              >— Android app using Bluetooth to simplify and moderate
+              attendance.
+              <a
+                href="https://github.com/chandkiransingh/Bluetooth-Attendance-System"
+                >github.com/chandkiransingh/Bluetooth-Attendance-System</a
+              ></span
+            >
+          </div>
+          <div class="proj">
+            <span class="pname">WSD — WhatsApp Status Downloader</span>
+            <span class="pdesc"
+              >— Android utility to save image &amp; video statuses to device.
+              <a
+                href="https://github.com/chandkiransingh/Whatsapp-Status-Downloader"
+                >github.com/chandkiransingh/Whatsapp-Status-Downloader</a
+              ></span
+            >
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
