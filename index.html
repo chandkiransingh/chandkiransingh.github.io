@@ -9,7 +9,7 @@
     />
     <meta
       name="description"
-      content="Chand Kiran Singh — Senior Software Engineer specializing in Node.js, Angular & full-stack web development. Building scalable, high-performing software."
+      content="Chand Kiran Singh — Senior Software Engineer with 6+ years in Node.js, Angular & full-stack web development. Claude Certified Architect and GitHub Copilot certified."
     />
     <meta name="author" content="Chand Kiran Singh" />
     <meta name="theme-color" content="#0d1117" />
@@ -1155,6 +1155,110 @@
         background: var(--accent-2);
       }
 
+      /* ===== Certifications ===== */
+      section.certs {
+        background:
+          radial-gradient(60% 80% at 15% 0%, rgba(167, 139, 250, 0.08), transparent 70%),
+          radial-gradient(50% 70% at 90% 100%, rgba(34, 211, 238, 0.06), transparent 70%),
+          var(--bg-alt);
+        border-top: 1px solid var(--border);
+      }
+      .cert-feature {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+      .cert-card {
+        position: relative;
+        display: flex;
+        gap: 18px;
+        padding: 26px;
+        border-radius: var(--radius);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        transition: all 0.2s ease;
+      }
+      .cert-card:hover {
+        border-color: #a78bfa;
+        transform: translateY(-2px);
+      }
+      .cert-logo {
+        flex: none;
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        font-size: 1.5rem;
+        color: #0b0e14;
+        background: linear-gradient(135deg, #a78bfa, #22d3ee);
+      }
+      .cert-logo.gh {
+        color: #fff;
+        background: linear-gradient(135deg, #2b3137, #6e5494);
+      }
+      .cert-card h3 {
+        font-size: 1.12rem;
+        margin: 0 0 4px;
+      }
+      .cert-issuer {
+        font-size: 0.86rem;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+      .cert-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 0.78rem;
+      }
+      .cert-meta span,
+      .cert-meta a {
+        padding: 3px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+      }
+      .cert-meta .pass {
+        color: #34d399;
+        border-color: rgba(52, 211, 153, 0.35);
+      }
+      .cert-meta a:hover {
+        color: var(--text);
+        border-color: #22d3ee;
+      }
+      .cert-courses {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .cert-course {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 18px;
+        border-radius: 12px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        font-size: 0.92rem;
+        color: var(--text);
+      }
+      .cert-course i {
+        color: #a78bfa;
+      }
+      .cert-course small {
+        display: block;
+        color: var(--faint);
+        font-size: 0.76rem;
+      }
+      @media (max-width: 860px) {
+        .cert-feature,
+        .cert-courses {
+          grid-template-columns: 1fr;
+        }
+      }
+
       /* ===== Education & Achievements ===== */
       .two-col {
         display: grid;
@@ -1509,10 +1613,12 @@
             </div>
             <p class="intro">
               Full-stack engineer specializing in <strong>Node.js</strong> and
-              <strong>Angular</strong>, with 5+ years designing, building and
+              <strong>Angular</strong>, with 6+ years designing, building and
               scaling complex web applications — from CRM integrations serving
               a million+ users to enterprise automation for the insurance
-              sector.
+              sector. Quick to adopt AI and put it to work, and now certified as
+              a <strong>Claude Certified Architect</strong> and in
+              <strong>GitHub Copilot</strong>.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#projects"
@@ -1569,7 +1675,7 @@
 
         <div class="stats reveal">
           <div class="stat">
-            <div class="num">5+</div>
+            <div class="num">6+</div>
             <div class="lbl">Years of Experience</div>
           </div>
           <div class="stat">
@@ -1735,6 +1841,69 @@
               <span class="tag">Unity 3D</span>
               <span class="tag">Raspberry Pi</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CERTIFICATIONS ===================== -->
+    <section id="certifications" class="certs">
+      <div class="wrap">
+        <span class="eyebrow">Certified in AI</span>
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-lead">
+          I pick up new AI tools fast and use them in real day-to-day
+          engineering work: coding assistants, agents, MCP integrations and
+          self-hosted models. These certifications back that up.
+        </p>
+
+        <div class="cert-feature">
+          <div class="cert-card reveal">
+            <div class="cert-logo"><i class="fas fa-brain"></i></div>
+            <div>
+              <h3>Claude Certified Architect – Foundations</h3>
+              <div class="cert-issuer">Anthropic · Proctored exam · Sep 2026</div>
+              <div class="cert-meta">
+                <span class="pass"><i class="fas fa-check"></i> Passed · 910 (pass mark 720)</span>
+                <a
+                  href="https://www.credly.com/badges/57ae7577-323e-41cd-ae69-4adee281bdf8"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fas fa-external-link-alt"></i> Verify</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-logo gh"><i class="fab fa-github"></i></div>
+            <div>
+              <h3>GitHub Copilot</h3>
+              <div class="cert-issuer">GitHub · Microsoft · Aug 2026</div>
+              <div class="cert-meta">
+                <span class="pass"><i class="fas fa-check"></i> Certified · valid to Aug 2028</span>
+                <a
+                  href="https://learn.microsoft.com/en-us/users/chandkiransingh-4061/credentials/75b9483eb8f8f202"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fas fa-external-link-alt"></i> Verify</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-courses">
+          <div class="cert-course reveal">
+            <i class="fas fa-code"></i>
+            <div>Claude with the Anthropic API<small>Anthropic · Course certificate</small></div>
+          </div>
+          <div class="cert-course reveal">
+            <i class="fab fa-aws"></i>
+            <div>Claude with Amazon Bedrock<small>Anthropic · Course certificate</small></div>
+          </div>
+          <div class="cert-course reveal">
+            <i class="fas fa-plug"></i>
+            <div>Introduction to Model Context Protocol<small>Anthropic · Course certificate</small></div>
           </div>
         </div>
       </div>
