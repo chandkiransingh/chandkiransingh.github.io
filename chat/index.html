@@ -134,7 +134,7 @@
         <textarea id="input" rows="1" maxlength="600" placeholder="Ask anything about Chand…" aria-label="Your question"></textarea>
         <button class="send" id="send" type="submit">Send</button>
       </div>
-      <p class="note">Answers are AI-generated from Chand's resume and may be imperfect. Runs on a self-hosted model.</p>
+      <p class="note">Answers are AI-generated from Chand's resume and may be imperfect. Runs on Llama 3.1, self-hosted in Chand's homelab.</p>
     </form>
 
     <script>
@@ -239,6 +239,8 @@
       chips.addEventListener("click", e => {
         if (e.target.tagName === "BUTTON") ask(e.target.textContent);
       });
+      const preset = new URLSearchParams(location.search).get("q");
+      if (preset) ask(preset.slice(0, 600));
     </script>
   </body>
 </html>
